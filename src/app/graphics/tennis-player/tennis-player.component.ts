@@ -1,3 +1,4 @@
+import { StmtModifier } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { TennisPlayer } from 'src/app/Model/tennis-player';
 
@@ -9,6 +10,9 @@ import { TennisPlayer } from 'src/app/Model/tennis-player';
 export class TennisPlayerComponent implements OnInit {
 
 // propriétés
+
+
+  public playersNames: string[]=['Jim', 'Pete', 'Pat', 'Stephan'];
   
 
   public player: TennisPlayer = {
@@ -16,6 +20,7 @@ export class TennisPlayerComponent implements OnInit {
     name:'Sampras',
     firstName: 'Pete'
   };
+  modify=false;
   
   // constructeurs et initialiseurs
   constructor() { }
@@ -24,5 +29,13 @@ export class TennisPlayerComponent implements OnInit {
   }
 
   // méthodes et fonctions
+  public onClick(){
+    this.player.firstName ="Jim";
+    this.player.name ="Courier";
+    this.modify=!this.modify;
+  }
 
+  public showText(){
+    return this.modify;
+  }
 }
